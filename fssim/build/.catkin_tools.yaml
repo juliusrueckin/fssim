@@ -1,0 +1,6 @@
+devel_space: /home/julius/Dokumente/Uni/TUM/TUfast/db019/src/amz-fssim/src/fssim/fssim/devel
+install: true
+install_space: /home/julius/Dokumente/Uni/TUM/TUfast/db019/src/amz-fssim/src/fssim/fssim/install
+profile: default
+source_space: /home/julius/Dokumente/Uni/TUM/TUfast/db019/src/amz-fssim/src/fssim/fssim/src
+workspace: /home/julius/Dokumente/Uni/TUM/TUfast/db019/src/amz-fssim/src/fssim/fssim
