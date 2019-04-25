@@ -1,0 +1,4 @@
+<launch>
+    <node name="controller_converter" pkg="converter" type="test_controller.py" output="screen" />
+    <include file="$(find stanleycontroller)/launch/controller.launch"/>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <rosparam command="load" file="$(find planner)/config/planner.yaml" />
+    <node name="planner_converter" pkg="converter" type="test_planner.py" output="screen" />
+    <include file="$(find planner)/launch/planner.launch"/>
+</launch>

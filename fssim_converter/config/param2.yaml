@@ -1,0 +1,22 @@
+##########
+# Global #
+##########
+
+mission_enum:
+  manual: 0
+  scrutti: 1
+  breaktest: 2
+  acceleration: 3
+  skidpad: 4
+  autox: 5
+  trackdrive: 6
+  calibrate: 7
+  gate: 8
+
+statemachine_enum:
+  manual: 0
+  asoff: 1
+  ready: 2
+  driving: 3
+  finished: 4
+  ebs_triggered: 5

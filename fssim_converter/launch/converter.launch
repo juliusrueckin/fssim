@@ -1,0 +1,4 @@
+<launch>
+    <rosparam command="load" file="$(find converter)/config/param.yaml" />
+    <node name="converter" pkg="converter" type="converter.py" output="screen" />
+</launch>

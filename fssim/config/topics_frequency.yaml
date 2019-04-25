@@ -26,9 +26,9 @@ topics:
     -   topic: "/fssim/base_pose_ground_truth"
         expected_frequency: 50
     -   topic: "/lidar/cones"
-        expected_frequency: 5
+        expected_frequency: 10
     -   topic: "/fssim/cmd"
-        expected_frequency: 5
+        expected_frequency: 10
 
 
 
