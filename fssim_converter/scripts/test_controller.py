@@ -10,7 +10,7 @@ from tf.transformations import quaternion_from_euler
 
 pub_control = rospy.Publisher('/fssim/cmd', Cmd, queue_size=1)
 
-speed = 0.05
+speed = 3.0
 steer = 0.0
 
 
@@ -56,6 +56,7 @@ if __name__ == '__main__':
     rospy.Subscriber('/control/steer', Float64, callback_steer)
     rospy.Subscriber('/control/speed', Float64, callback_speed)
 
-    rate = rospy.Rate(100)
+    rate = rospy.Rate(50)
     while not rospy.is_shutdown():
+        rate.sleep()
         continue
