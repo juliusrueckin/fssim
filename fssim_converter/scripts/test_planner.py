@@ -13,8 +13,8 @@ from tf.transformations import quaternion_from_euler
 
 
 pub_cones = rospy.Publisher('/perception/cones/planning', ConeArray, queue_size=1)
-pub_state = rospy.Publisher('/stateestimation/odometry', OdometryState, queue_size=1)
-pub_state_ros = rospy.Publisher('/stateestimation/odometry_ros', Odometry, queue_size=1)
+pub_state = rospy.Publisher('/stateestimation/odometry', Odometry, queue_size=1)
+pub_state_v = rospy.Publisher('/stateestimation/odometry_v', OdometryState, queue_size=1)
 
 
 state = Pose2D()
@@ -66,33 +66,33 @@ def callback_state(data):
     state.y = data.y
     state.theta = data.yaw
 
-    msg = OdometryState()
+    msg_v = OdometryState()
     msg_ros = Odometry()
 
-    msg.header = data.header
+    msg_v.header = data.header
     msg_ros.header = data.header
 
-    msg.state.pose.pose.position.x = data.x
-    msg.state.pose.pose.position.y = data.y
-    [x, y, z, w] = quaternion_from_euler(state.theta, 0, 0)
-    msg.state.pose.pose.orientation.x = x
-    msg.state.pose.pose.orientation.y = y
-    msg.state.pose.pose.orientation.z = z
-    msg.state.pose.pose.orientation.w = w
+    [x, y, z, w] = quaternion_from_euler(0, 0, state.theta)
+
+    msg_v.state.pose.pose.position.x = data.x
+    msg_v.state.pose.pose.position.y = data.y
+    msg_v.state.pose.pose.orientation.x = x
+    msg_v.state.pose.pose.orientation.y = y
+    msg_v.state.pose.pose.orientation.z = z
+    msg_v.state.pose.pose.orientation.w = w
 
     msg_ros.pose.pose.position.x = data.x
     msg_ros.pose.pose.position.y = data.y
-    [x, y, z, w] = quaternion_from_euler(state.theta, 0, 0)
     msg_ros.pose.pose.orientation.x = x
     msg_ros.pose.pose.orientation.y = y
     msg_ros.pose.pose.orientation.z = z
     msg_ros.pose.pose.orientation.w = w
 
     v = np.array([data.vx, data.vy])
-    msg.velocity = np.sqrt(np.sum(np.square(v)))
+    msg_v.velocity = np.sqrt(np.sum(np.square(v)))
 
-    pub_state.publish(msg)
-    pub_state_ros.publish(msg_ros)
+    pub_state.publish(msg_ros)
+    pub_state_v.publish(msg_v)
 
 
 if __name__ == '__main__':
