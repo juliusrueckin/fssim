@@ -56,7 +56,4 @@ if __name__ == '__main__':
     rospy.Subscriber('/control/steer', Float64, callback_steer)
     rospy.Subscriber('/control/speed', Float64, callback_speed)
 
-    rate = rospy.Rate(50)
-    while not rospy.is_shutdown():
-        rate.sleep()
-        continue
+    rospy.spin()
