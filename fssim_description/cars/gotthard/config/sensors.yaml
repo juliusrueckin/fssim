@@ -63,13 +63,13 @@ sensors:
     distance_dependent_observation: 100000.0 # The probability of observation decreases with factor = -1/distance_dependent_misclass * r + 1
     observation_likelihood_left:  1.0     # Likelihood of observing left              [0..1]
     observation_likelihood_right: 1.0     # Likelihood of observing right             [0..1]
-    observation_likelihood_orange: 1.0    # Likelihood of observing right             [0..1]
+    observation_likelihood_orange: 0.0    # Likelihood of observing right             [0..1]
     
     color_observation_radius:     20.0    # We can observe color only below this threshold [m]
     distance_dependent_misclass:  200000.0   # The probability of color observation decreases with factor = -1/distance_dependent_misclass * r + 1
     likelihood_yellow:            1.0     # Likelihood of observe color of cones left  [0..1]
     likelihood_blue:              1.0     # Likelihood of observe color of cones right [0..1]
-    likelihood_orange:            1.0     # Likelihood of observe color of cones right [0..1]
+    likelihood_orange:            0.0     # Likelihood of observe color of cones right [0..1]
 
     gaussian_noise_xy_mu:         0.0     # Mean of Gaussian noise on [x,y] cone position
     gaussian_noise_xy_sigma:      0.0     # Variance of Gaussian noise on [x,y] cone position
@@ -100,13 +100,13 @@ sensors:
     distance_dependent_observation: 100.0 # The probability of observation decreases with factor = -1/distance_dependent_misclass * r + 1
     observation_likelihood_left:  1.0     # Likelihood of observing left              [0..1]
     observation_likelihood_right: 1.0     # Likelihood of observing right             [0..1]
-    observation_likelihood_orange: 1.0    # Likelihood of observing right             [0..1]
+    observation_likelihood_orange: 0.0    # Likelihood of observing right             [0..1]
     
     color_observation_radius:     10.0    # We can obser color only below this threshild [m]
     distance_dependent_misclass:  200.0   # The probability of color observation decreases with factor = -1/distance_dependent_misclass * r + 1
     likelihood_yellow:            0.99     # Likelihood of observic color of cones left  [0..1]
     likelihood_blue:              0.99     # Likelihood of observic color of cones right [0..1]
-    likelihood_orange:            0.99     # Likelihood of observic color of cones right [0..1]
+    likelihood_orange:            0.00     # Likelihood of observic color of cones right [0..1]
 
     gaussian_noise_xy_mu:         0.0     # Mean of Gaussian noise on [x,y] cone position
     gaussian_noise_xy_sigma:      0.0     # Variance of Gaussian noise on [x,y] cone position
