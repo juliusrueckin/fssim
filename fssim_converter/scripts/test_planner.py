@@ -12,7 +12,7 @@ from geometry_msgs.msg import Pose2D
 from tf.transformations import quaternion_from_euler
 
 
-pub_cones = rospy.Publisher('/perception/cones/planning', ConeArray, queue_size=1)
+pub_cones = rospy.Publisher('/perception/lidar/cones', ConeArray, queue_size=1)
 pub_state = rospy.Publisher('/stateestimation/odometry', Odometry, queue_size=1)
 pub_state_v = rospy.Publisher('/stateestimation/odometry_v', OdometryState, queue_size=1)
 
@@ -40,12 +40,12 @@ def callback_cones(data):
 
     msg = ConeArray()
     msg.header = data.header
-    msg.header.frame_id = 'map'
+    msg.header.frame_id = 'pandar'
 
     for row in lidar_data:
         c = Cone()
-        c.position.x = math.cos(state.theta) * row[0] - math.sin(state.theta) * row[1] + state.x
-        c.position.y = math.sin(state.theta) * row[0] + math.cos(state.theta) * row[1] + state.y
+        c.position.x = row[0] # math.cos(state.theta) * row[0] - math.sin(state.theta) * row[1] + state.x
+        c.position.y = row[1] # math.sin(state.theta) * row[0] + math.cos(state.theta) * row[1] + state.y
         i = np.argmax(np.array(row[3:7]))
         if i == 0:
             c.type = Cone.LEFT
