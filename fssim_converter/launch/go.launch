@@ -1,10 +1,16 @@
 <launch>
 
+    <rosparam command="load" file="$(find converter)/config/param.yaml" />
+
     <node name="planner_converter" pkg="converter" type="test_planner.py" output="screen" />
     <include file="$(find simple_cone_fusion)/launch/simple_cone_fusion.launch"/>
     <include file="$(find planner)/launch/planner.launch"/>
 
     <node name="controller_converter" pkg="converter" type="test_controller.py" output="screen" />
     <include file="$(find stanleycontroller)/launch/controller.launch"/>
+
+    <node pkg="rostopic" type="rostopic" name="rostopic_pub_cones" 
+		args="pub -f $(find converter)/config/state_driving.yaml /statemachine/state custom_msgs/State"
+		launch-prefix="bash -c 'sleep 0.5; $0 $@' " />
 
 </launch>

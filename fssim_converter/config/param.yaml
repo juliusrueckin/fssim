@@ -1,31 +1,3 @@
-# Configuration file for planning
 # YAML
 
-planner:
-  general:
-    rviz: True
-    use_global_trajectory: True
-    algorithm: "simple"
-    planning_rate: 1.0 # in Hz
-  cones:
-    maxDistBetweenCones: 5.5
-
-  simple_dynamic_planner:
-    # step forward along current orientation
-    initialStep: 0.01 
-    dsitBetweenLocations: 1.0
-    maxPlanningHorizon: 5.0
-    maxNumberOfSteps: 20
-    patienceBeforeLinearInterpolation: 4
-
-  # Note there are many more parameter regarding the actual optimisation in external_modules/mod_global_trajectory/params
-  generate_global_trajectory:
-    centerline:  
-      minDistBetweenLocations: 0.5
-      maxDistBetweenLocations: 0.5
-
-    track: 
-      clockWise: True
-
-    general:
-      debugPlots: True
+is_fssim: True
