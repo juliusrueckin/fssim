@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="planner_converter" pkg="converter" type="test_planner.py" output="screen" />
+    <include file="$(find simple_cone_fusion)/launch/simple_cone_fusion.launch"/>
+    <include file="$(find planner)/launch/planner.launch"/>
+
+    <node name="controller_converter" pkg="converter" type="test_controller.py" output="screen" />
+    <include file="$(find stanleycontroller)/launch/controller.launch"/>
+
+</launch>
